@@ -1,11 +1,11 @@
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.common.by import By
 from .locators import ProductPageLocators
-
+from .base_page import BasePage
 import math
 
 
-class ProductPage:
+class ProductPage(BasePage):
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
         self.url = url
@@ -53,3 +53,10 @@ class ProductPage:
 
     def cart_total_should_equal_to_price(self, item_pr, cart_tot):
         assert item_pr == cart_tot, 'The item price differs from the cart total'
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+
+    def element_should_be_disappeared(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "The element is still present, but should be disappeared"
+
