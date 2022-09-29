@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 from .locators import BasePageLocators
 
+
 class BasePage:
     def __init__(self, browser, url, timeout=10):
         self.browser = browser
@@ -42,5 +43,11 @@ class BasePage:
 
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not present"
+
+    def go_to_cart_using_button_at_the_top(self):
+        cart_button = self.browser.find_element(*BasePageLocators.CART_BUTTON)
+        cart_button.click()
+
+
 
 
