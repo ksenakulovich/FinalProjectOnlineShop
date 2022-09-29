@@ -1,2 +1,2 @@
-# FinalProjectOnlineShop
-This project contains automated tests for an online shop written at the end of the course at Stepik.
+# FinalProject
+This repository contains files for the final project on Stepik (https://stepik.org/course/575/syllabus).
